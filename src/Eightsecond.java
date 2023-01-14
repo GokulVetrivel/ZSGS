@@ -3,7 +3,7 @@ public class Eightsecond {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(myAtoi(" + 432"));
+		System.out.println(myAtoi("  -432-455"));
 
 	}
 	 public static int myAtoi(String s) {
@@ -14,8 +14,8 @@ public class Eightsecond {
 		 boolean bool=false,arith=false;
 	        for(int i=0;i<s.length();i++) {
 	        	
-	        		if((s.charAt(i)==' ') || (s.charAt(i)>=48 && s.charAt(i)<=57)|| s.charAt(i)=='+' || s.charAt(i)=='-') {
-	        			if((bool && s.charAt(i)==' ' && !arith))  
+	        		if(((s.charAt(i)==' ') || (s.charAt(i)>=48 && s.charAt(i)<=57)|| s.charAt(i)=='+' || s.charAt(i)=='-')) {
+	        			if((bool && s.charAt(i)==' ' && arith))  
 	        				break;
 	        			if(arith && (s.charAt(i)=='-' || s.charAt(i)=='+'))  
 	        				break;
@@ -23,10 +23,14 @@ public class Eightsecond {
 	        				j=i;
 	        				arith=true;
 	        			}
-	        			if(s.charAt(i)=='+')
+	        			if(s.charAt(i)=='+') 
 	        				arith=true;
+	        			if(bool && s.charAt(i)==' ')
+	        				 return 0;
+	        			if(s.charAt(i)=='+' || s.charAt(i)=='-')
+	        				bool =true;
 	        			if(s.charAt(i)!=' ' && s.charAt(i)!='+' && s.charAt(i)!='-') {
-	        			
+	        			 
 	        			r=s.charAt(i)-48;
 	        			n=(n*10)+r;	
 	        			if(s.charAt(j)=='-')	
